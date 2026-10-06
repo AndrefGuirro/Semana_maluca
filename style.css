@@ -1,0 +1,679 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f5,
+            #fff9e8
+        );
+
+    color: #333;
+
+    min-height: 100vh;
+
+    padding: 20px 14px 40px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+
+.emoji-title {
+    font-size: 58px;
+
+    animation:
+        titleBounce 2s infinite;
+}
+
+
+.header h1 {
+    font-size: 30px;
+    line-height: 1.1;
+
+    margin-top: 5px;
+
+    color: #e83e72;
+}
+
+
+.header p {
+    font-size: 15px;
+
+    margin-top: 10px;
+
+    color: #666;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   PERSONAGEM
+========================= */
+
+.character-area {
+    position: relative;
+
+    text-align: center;
+
+    margin: 10px 0 22px;
+
+    min-height: 155px;
+}
+
+
+.character {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 110px;
+    height: 110px;
+
+    font-size: 76px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.12);
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+
+.speech {
+    display: block;
+
+    max-width: 330px;
+
+    margin: 10px auto 0;
+
+    background: white;
+
+    padding: 10px 15px;
+
+    border-radius: 18px;
+
+    font-size: 14px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+}
+
+
+.speech::before {
+    content: "";
+
+    position: absolute;
+
+    top: -7px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+}
+
+
+/* =========================
+   ANIMAÇÕES DA MÃE
+========================= */
+
+.character.walking {
+    animation:
+        walk 0.7s ease-in-out;
+}
+
+
+.character.confused {
+    animation:
+        confused 0.6s ease-in-out;
+}
+
+
+.character.falling {
+    animation:
+        falling 1.5s forwards;
+}
+
+
+.character.celebrating {
+    animation:
+        celebrate 0.7s infinite alternate;
+}
+
+
+@keyframes walk {
+
+    0% {
+        transform: translateX(0) rotate(0);
+    }
+
+    25% {
+        transform: translateX(-25px) rotate(-8deg);
+    }
+
+    50% {
+        transform: translateX(25px) rotate(8deg);
+    }
+
+    75% {
+        transform: translateX(-15px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+}
+
+
+@keyframes confused {
+
+    0% {
+        transform: rotate(0);
+    }
+
+    25% {
+        transform: rotate(-15deg);
+    }
+
+    50% {
+        transform: rotate(15deg);
+    }
+
+    75% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
+}
+
+
+@keyframes falling {
+
+    0% {
+        transform:
+            rotate(0deg)
+            translateY(0);
+
+        opacity: 1;
+    }
+
+    60% {
+        transform:
+            rotate(60deg)
+            translateY(20px);
+    }
+
+    100% {
+        transform:
+            rotate(90deg)
+            translateY(55px);
+
+        opacity: 0.75;
+    }
+}
+
+
+@keyframes celebrate {
+
+    from {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    to {
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+
+@keyframes titleBounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* =========================
+   PROGRESSO
+========================= */
+
+.progress-area {
+    margin-bottom: 18px;
+}
+
+
+.progress-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 14px;
+
+    margin-bottom: 7px;
+
+    color: #666;
+}
+
+
+.progress-info strong {
+    color: #e83e72;
+}
+
+
+.progress-bar {
+    width: 100%;
+
+    height: 10px;
+
+    background: #eee;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+.progress {
+    width: 0%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff5c8a,
+            #ffb347
+        );
+
+    border-radius: 20px;
+
+    transition:
+        width 0.5s ease;
+}
+
+
+/* =========================
+   ATIVIDADES
+========================= */
+
+.activities {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.activity {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 14px;
+
+    cursor: pointer;
+
+    border: 2px solid transparent;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.07);
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.3s ease;
+}
+
+
+.activity:active {
+    transform: scale(0.97);
+}
+
+
+.activity:hover {
+    border-color: #ffb3c7;
+}
+
+
+/* Checkbox original escondido */
+
+.activity input {
+    display: none;
+}
+
+
+/* Número */
+
+.activity-number {
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ffe3ec;
+
+    color: #e83e72;
+
+    font-weight: bold;
+
+    font-size: 18px;
+
+    transition: all 0.3s ease;
+}
+
+
+/* Texto */
+
+.activity-info {
+    flex: 1;
+}
+
+
+.activity-info h2 {
+    font-size: 16px;
+
+    margin-bottom: 3px;
+
+    color: #333;
+}
+
+
+.activity-info p {
+    font-size: 12px;
+
+    color: #888;
+
+    line-height: 1.3;
+}
+
+
+/* Check */
+
+.check {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    border: 2px solid #ddd;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: transparent;
+
+    font-weight: bold;
+
+    transition: all 0.3s ease;
+}
+
+
+/* =========================
+   ITEM CONCLUÍDO
+========================= */
+
+.activity.completed {
+    background: #f7fff8;
+
+    border-color: #b8e6c2;
+
+    transform: scale(0.98);
+}
+
+
+.activity.completed .activity-number {
+    background: #55c96f;
+
+    color: white;
+}
+
+
+.activity.completed .check {
+    background: #55c96f;
+
+    border-color: #55c96f;
+
+    color: white;
+
+    transform: scale(1.1);
+}
+
+
+.activity.completed .activity-info h2 {
+    text-decoration: line-through;
+
+    color: #777;
+}
+
+
+.activity.completed .activity-info p {
+    color: #aaa;
+}
+
+
+/* =========================
+   MENSAGEM FINAL
+========================= */
+
+.final-message {
+    display: none;
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    padding: 25px 18px;
+
+    background: white;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.1);
+
+    animation:
+        finalAppear 0.7s ease;
+}
+
+
+.final-message.show {
+    display: block;
+}
+
+
+.final-emoji {
+    font-size: 65px;
+
+    margin-bottom: 8px;
+}
+
+
+.final-message h2 {
+    color: #e83e72;
+
+    font-size: 27px;
+
+    margin-bottom: 8px;
+}
+
+
+.final-message p {
+    color: #666;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    margin-bottom: 18px;
+}
+
+
+#resetButton {
+    border: none;
+
+    background: #e83e72;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+
+#resetButton:hover {
+    background: #d72d63;
+
+    transform: scale(1.04);
+}
+
+
+@keyframes finalAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   RODAPÉ
+========================= */
+
+footer {
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: #999;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 380px) {
+
+    body {
+        padding:
+            15px 10px 30px;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+
+    .activity {
+        padding: 11px;
+        gap: 9px;
+    }
+
+    .activity-number {
+        width: 38px;
+        height: 38px;
+
+        font-size: 16px;
+    }
+
+    .activity-info h2 {
+        font-size: 14px;
+    }
+
+    .activity-info p {
+        font-size: 11px;
+    }
+
+}
